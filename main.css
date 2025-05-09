@@ -1,0 +1,22 @@
+body {
+    text-align: center;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 35px;
+}
+
+#title, #option {
+    display: flex;
+    justify-content: center;
+}
+
+#option_1, #option_2 {
+    margin: 10px;
+}

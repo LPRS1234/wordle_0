@@ -1,0 +1,51 @@
+body {
+    text-align: center;
+}
+.input-row input {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 5px;
+    font-size: 25px;
+    text-align: center;
+}
+
+#hint {
+    font-size: 25px;
+}
+
+#submit_btn {
+    font-size: 30px;
+    padding: 1px 10px 1px 10px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
+
+.input {
+    border: 2px solid #ccc;
+    background-color: whitesmoke;
+    border-radius: 15%;
+  }
+  
+.input:focus {
+  border: 2px solid #ccc; 
+  outline: none;
+}
+
+.next-btn {
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: beige;
+    border: 1px solid rgba(0,0,0, 0.1);
+}
+
+.last {
+    position: relative;
+    top: 300px;
+    text-align: center;
+}
+
+#nextBtn {
+    cursor: pointer;
+}

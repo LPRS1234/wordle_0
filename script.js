@@ -1,0 +1,235 @@
+// JS
+//사자성어
+const answers = [
+    "작심삼일", "전화위복", "이심전심", "우왕좌왕", "설상가상",
+    "막상막하", "동문서답", "유비무환", "금상첨화", "무용지물",
+    "천방지축", "속수무책", "일석이조", "고진감래", "유유상종",
+    "문전성시", "청출어람", "수수방관", "배은망덕", "동고동락",
+    "사면초가", "진퇴양난", "자포자기", "구사일생", "토사구팽",
+    "각양각색", "기고만장", "속전속결", "타산지석", "연목구어"
+  ];
+  
+  //사자성어 뜻
+const hints = {
+    "작심삼일": "결심이 사흘을 가지 못한다. 결심이 오래가지 못함.",
+    "전화위복": "화가 바뀌어 복이 된다. 나쁜 일이 오히려 좋은 결과를 가져옴.",
+    "이심전심": "말하지 않아도 서로 마음이 통함.",
+    "우왕좌왕": "이리저리 왔다 갔다 하며 방향을 잡지 못함.",
+    "설상가상": "눈 위에 서리가 내림. 나쁜 일에 또 다른 나쁜 일이 더해짐.",
+    "막상막하": "위도 없고 아래도 없음. 실력이 서로 비슷함.",
+    "동문서답": "동쪽을 물었는데 서쪽을 대답함. 질문과 엉뚱한 대답을 함.",
+    "유비무환": "준비가 되어 있으면 걱정할 일이 없음.",
+    "금상첨화": "비단 위에 꽃을 더함. 좋은 일에 또 좋은 일이 더해짐.",
+    "무용지물": "아무런 쓸모가 없는 물건.",
+    "천방지축": "이리저리 함부로 날뛰며 덤벙거림.",
+    "속수무책": "손을 묶은 듯이 어찌할 방법이 없음.",
+    "일석이조": "돌 하나로 새 두 마리를 잡는다. 한 가지로 두 가지 이익을 얻음.",
+    "고진감래": "괴로움이 끝나면 즐거움이 찾아옴.",
+    "유유상종": "끼리끼리 어울림. 비슷한 사람들끼리 모임.",
+    "문전성시": "문 앞이 시장처럼 붐빔. 방문객이 많음.",
+    "청출어람": "제자가 스승보다 나음.",
+    "수수방관": "팔짱 끼고 보기만 함. 아무런 도움을 주지 않음.",
+    "배은망덕": "은혜를 잊고 도리를 저버림.",
+    "동고동락": "괴로움도 즐거움도 함께 함.",
+    "사면초가": "사방에서 적의 노래 소리가 들림. 고립된 상황.",
+    "진퇴양난": "앞으로도 뒤로도 나아가지 못함. 매우 곤란한 상황.",
+    "자포자기": "자신을 포기하고 체념함.",
+    "구사일생": "아홉 번 죽을 뻔하다가 겨우 한 번 살아남.",
+    "토사구팽": "토끼가 죽으면 사냥개도 버려진다. 필요할 때만 쓰고 버림.",
+    "각양각색": "모양과 색깔이 모두 다름. 다양함.",
+    "기고만장": "기세가 하늘을 찌를 듯함. 의기양양한 모습.",
+    "속전속결": "빠르게 싸우고 빠르게 끝냄. 일을 재빨리 처리함.",
+    "타산지석": "다른 산의 돌도 나의 옥을 가는 데 도움됨. 다른 사람의 잘못도 교훈이 됨.",
+    "연목구어": "나무에 올라가 물고기를 구하려 함. 불가능한 일을 하려 함."
+  };
+
+  //예문
+const examples = {
+    "작심삼일": "다이어트를 하겠다고 해놓고 또 과자를 먹다니, 정말 작심삼일이네.",
+    "전화위복": "지각해서 시험을 못 봤는데, 알고 보니 시험 문제가 잘못 나왔더라. 전화위복이었지!",
+    "이심전심": "우린 오래된 친구라 말 안 해도 통하지, 이심전심이야.",
+    "우왕좌왕": "지시가 명확하지 않아서 직원들이 우왕좌왕했어.",
+    "설상가상": "감기에 걸렸는데 시험까지 있다니, 정말 설상가상이야.",
+    "막상막하": "이번 경기는 두 팀이 막상막하의 실력을 보여줬어.",
+    "동문서답": "공부하냐고 물었더니 밥 먹었다는 동문서답만 하더라.",
+    "유비무환": "비상약을 항상 가지고 다녀. 유비무환이지.",
+    "금상첨화": "친구가 축하 케이크까지 가져왔어. 생일에 금상첨화네!",
+    "무용지물": "충전이 안 되는 보조 배터리는 무용지물이지.",
+    "천방지축": "그 아이는 천방지축으로 뛰어다녀서 감당이 안 돼.",
+    "속수무책": "비가 갑자기 쏟아져서 우산도 없이 속수무책이었다.",
+    "일석이조": "공원에 가서 운동도 하고 친구도 만났으니 일석이조였어.",
+    "고진감래": "힘든 시기를 이겨내고 성공했으니, 고진감래지.",
+    "유유상종": "말썽꾸러기들끼리 어울리더니 역시 유유상종이야.",
+    "문전성시": "요즘 그 맛집은 하루 종일 문전성시를 이루더라.",
+    "청출어람": "제자가 스승보다 더 유명해졌어. 청출어람이지.",
+    "수수방관": "친구가 곤란한데도 도와주지 않고 수수방관했어.",
+    "배은망덕": "그 사람은 도와준 은혜를 잊고 배은망덕하게 행동했어.",
+    "동고동락": "우리는 힘든 시간도 즐거운 시간도 함께한 동고동락한 사이야.",
+    "사면초가": "도와줄 사람도 없고, 사방이 적뿐이니 사면초가였어.",
+    "진퇴양난": "어느 쪽을 선택해도 손해인 진퇴양난의 상황이야.",
+    "자포자기": "계속 실패하니까 자포자기한 태도로 변하더라.",
+    "구사일생": "산에서 조난당했지만 구조돼서 구사일생으로 살아났어.",
+    "토사구팽": "프로젝트 끝나자마자 팀원들을 내쫓다니 토사구팽이지.",
+    "각양각색": "축제에 사람들이 각양각색의 옷을 입고 나왔어.",
+    "기고만장": "성적이 좀 올랐다고 기고만장해 있더라.",
+    "속전속결": "그 회사는 회의도 속전속결로 끝내서 좋아.",
+    "타산지석": "그의 실패를 보고 나도 조심해야겠다고 느꼈어. 진짜 타산지석이야.",
+    "연목구어": "운동도 안 하면서 1등 하겠다는 건 연목구어지."
+  };
+
+//전체 게임 화면
+const gm_sc = document.getElementById('gm_sc')
+
+// 랜덤 정답 선택
+let answer = answers[Math.floor(Math.random() * answers.length)];
+
+let currentRowIndex = 0;
+
+const sub_btn = document.getElementById('submit_btn');
+const rows = document.querySelectorAll('.input-row');
+let gameEnded = false;
+
+function SubmitAnswer() {
+    const currentRow = rows[currentRowIndex];
+    const inputs = currentRow.querySelectorAll('.input');
+
+    if (gameEnded) {
+      return;
+    };
+
+    // 입력이 다 되었는지 검사
+    for (let i = 0; i < 4; i++) {
+        if (inputs[i].value === "") {
+            alert("모든 글자를 입력해주세요.");
+            return;
+        }
+    }
+
+    // 정답 체크
+    for (let i = 0; i < 4; i++) {
+        const char = inputs[i].value;
+        const correct = answer[i]; // ✅ 실제 랜덤으로 뽑힌 정답
+
+
+        if (char === correct) {
+            inputs[i].style.background = '#79B851';
+        } else if (answer.includes(char)) {
+            inputs[i].style.background = '#F3C237';
+        } else {
+            inputs[i].style.background = '#A4AEC4';
+        }
+
+        // 정답 제출 후 입력 비활성화
+        inputs[i].disabled = true;
+    }
+
+    function ResetGame() {
+      //게임 상태 초기화
+      gameEnded = false;
+      //새로운 정답뽑고 힌트 수정
+      const newAnswer = answers[Math.floor(Math.random() * answers.length)];
+      answer = newAnswer;
+      document.getElementById("hint").innerText = hints[newAnswer];
+      
+      //입력 줄 초기화
+      currentRowIndex = 0;
+      rows.forEach((row, rowIndex) => {
+        const inputs = row.querySelectorAll('.input');
+        inputs.forEach(input => {
+          input.value = ''
+          input.disabled = rowIndex !== 0; //첫 줄만 초기화
+          input.style.background = "white"; //배경색 초기화
+        })
+      })
+      console.log(answer);
+      rows[0].querySelectorAll('.input')[0].focus();
+
+    };
+
+    
+    function createElement() {
+        const h1 = document.createElement("h1");
+        h1.innerText = `정답 : ${answer} \n 뜻 : ${hints[answer]} \n ${examples[answer]}`;
+        document.body.appendChild(h1);
+        h1.classList.add("last")
+        //console.dir(h1)
+    };
+
+    function createNextBtn() {
+      const btn = document.createElement("button");
+      btn.innerText = "다음 문제";
+      btn.classList.add("next-btn")
+      btn.classList.add("last")
+      btn.id = "nextBtn"
+      document.body.appendChild(btn);
+
+      btn.addEventListener("click", () => {
+        gm_sc.style.display = '';
+        const allLasts = document.querySelectorAll(".last");
+        allLasts.forEach(el => el.remove());
+        ResetGame() 
+      });  
+
+      console.dir(btn);
+    }
+
+    // 정답일 경우 게임 종료
+    const guess = [...inputs].map(i => i.value).join('');
+    if (guess === answer) {
+        gameEnded = true;
+        gm_sc.style.display = 'none'
+        createElement()
+        createNextBtn()
+    }
+
+    // 다음 줄로 이동
+    currentRowIndex++;
+    if (currentRowIndex < rows.length) {
+        const nextInputs = rows[currentRowIndex].querySelectorAll('.input');
+        nextInputs.forEach(i => i.disabled = false);
+        nextInputs[0].focus();
+    } else {
+        alert("모든 기회를 사용했습니다. 정답: " + answer);
+    }
+}
+
+
+const allInputs = document.querySelectorAll('.input');
+
+allInputs.forEach((input, index) => {
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      const prevInput = allInputs[index - 1];
+      if (prevInput && !prevInput.disabled) {
+        prevInput.focus();
+      }
+    } else if (e.key === 'ArrowRight') {
+      const nextInput = allInputs[index + 1];
+      if (nextInput && !nextInput.disabled) {
+        nextInput.focus();
+      }
+    }
+
+    if (e.key === 'Backspace' && input.value === '') {
+      const prevInput = allInputs[index - 1];
+      if (prevInput && !prevInput.disabled) {
+        prevInput.focus();
+      }
+    }
+  });
+});
+
+
+
+document.getElementById('hint').innerText = hints[answer];
+console.log(answer);
+
+sub_btn.addEventListener('click', SubmitAnswer);
+document.addEventListener('keypress', function(event) {
+    const user_key = event.key
+    if(user_key === 'Enter' && !gameEnded) {
+        SubmitAnswer()
+    }
+})
+
+console.dir(sub_btn);
