@@ -1,4 +1,3 @@
-// JS
 //사자성어
 const answers = [
     "작심삼일", "전화위복", "이심전심", "우왕좌왕", "설상가상",
@@ -108,7 +107,7 @@ function SubmitAnswer() {
     // 정답 체크
     for (let i = 0; i < 4; i++) {
         const char = inputs[i].value;
-        const correct = answer[i]; // ✅ 실제 랜덤으로 뽑힌 정답
+        const correct = answer[i]; //실제 랜덤으로 뽑힌 정답
 
 
         if (char === correct) {

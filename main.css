@@ -6,12 +6,6 @@ h1 {
     font-size: 45px;
 }
 
-a {
-    text-decoration: none;
-    color: black;
-    font-size: 35px;
-}
-
 #title, #option {
     display: flex;
     justify-content: center;
@@ -19,4 +13,20 @@ a {
 
 #option_1, #option_2 {
     margin: 10px;
+}
+
+button {
+    font-size: 35px;
+    border: 1px solid black;
+    border-radius: 12px;
+    width: 200px;
+    height: 50px;
+}
+
+button:hover {
+    background-color: beige;
+    border: 1px solid red;
+    border-radius: 12px;
+    color: red;
+    cursor: pointer;
 }
