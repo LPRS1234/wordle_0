@@ -17,16 +17,18 @@ h1 {
 
 button {
     font-size: 35px;
-    border: 1px solid black;
-    border-radius: 12px;
-    width: 200px;
-    height: 50px;
-}
-
-button:hover {
     background-color: beige;
     border: 1px solid red;
     border-radius: 12px;
     color: red;
     cursor: pointer;
+    width: 200px;
+    height: 50px;
+}
+
+button:hover {
+    border: 1px solid beige;
+    border-radius: 12px;
+    color: beige;
+    background-color: red;
 }
