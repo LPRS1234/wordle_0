@@ -1,0 +1,37 @@
+@media (max-width:500px) and (max-height:900px) {
+    body {
+        text-align: center;
+    }
+
+    .input-row input {
+        width: 30px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+    #gm_sc h1 {
+        font-size: 20px;
+    }
+
+    #gm_sc h2 {
+        font-size: 18px;
+    }
+
+    #hint {
+        font-size: 15px;
+    }
+
+    #submit_btn {
+        font-size: 20px;
+        padding: 1px 10px;
+    }
+
+    .last {
+        font-size: 20px;
+    }
+
+    #nextBtn {
+        font-size: 15px;
+        padding: 5px 10px;
+    }
+}

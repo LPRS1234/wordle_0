@@ -17,10 +17,10 @@ h1 {
 
 button {
     font-size: 35px;
-    background-color: beige;
-    border: 1px solid red;
+    background-color: rgb(255, 238, 0);
+    border: 3px solid green;
     border-radius: 12px;
-    color: red;
+    color: orange;
     cursor: pointer;
     width: 200px;
     height: 50px;
@@ -32,3 +32,21 @@ button:hover {
     color: beige;
     background-color: red;
 }
+/*
+#option_1 button {
+    color: green;
+}
+
+#option_1 button:hover {
+    color: beige;
+    background-color: green;
+}
+
+#option_2 button {
+    color: blue;
+}
+
+#option_2 button:hover {
+    color: beige;
+    background-color: blue;
+}*/
